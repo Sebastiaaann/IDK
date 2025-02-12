@@ -43,10 +43,12 @@ body {
 }
 
 img {
-  max-height: 200px;
+  max-height: 280px;
   width: 100%;
   user-select: none;
 }
+
+
 
 .paper.heart::after {
   content: "";
