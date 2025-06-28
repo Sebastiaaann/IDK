@@ -51,6 +51,11 @@ class Paper {
     })
 
     paper.addEventListener('mousedown', (e) => {
+      // Prevenir arrastre si se hace clic en un enlace
+      if(e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('.link-container')) {
+        return;
+      }
+      
       if(this.holdingPaper) return; 
       this.holdingPaper = true;
       

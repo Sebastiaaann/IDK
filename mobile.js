@@ -21,6 +21,10 @@ class Paper {
   init(paper) {
     // Prevenir comportamientos por defecto
     paper.addEventListener('touchstart', (e) => {
+      // No prevenir el comportamiento por defecto si es un enlace
+      if(e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('.link-container')) {
+        return;
+      }
       e.preventDefault();
     }, { passive: false });
 
@@ -61,6 +65,11 @@ class Paper {
     }, { passive: false });
 
     paper.addEventListener('touchstart', (e) => {
+      // Prevenir arrastre si se hace clic en un enlace
+      if(e.target.tagName === 'A' || e.target.closest('a') || e.target.closest('.link-container')) {
+        return;
+      }
+      
       if(this.holdingPaper) return; 
       this.holdingPaper = true;
       
